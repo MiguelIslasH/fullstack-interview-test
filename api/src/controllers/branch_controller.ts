@@ -4,36 +4,25 @@ import Controller from "./controller";
 
 import Commit from "../models/commit";
 
-class CommitController extends Controller {
+class BranchController extends Controller {
   constructor(response: Response) {
     super(response);
   }
 
-  async getCommitLog() {
+  async getAllBranches() {
     try {
-      const commitsLog = (await this.git.log({ multiLine: true })).all;
-      const formatedCommits = commitsLog.map<Commit>(
-        (commit) =>
-          new Commit(
-            commit.message,
-            commit.date,
-            5,
-            commit.author_name,
-            commit.author_email
-          )
-      );
+      const localBranches = await this.git.branchLocal();
 
       this.controllerResponse = {
         status: 200,
-        message: "All commits are here!",
-        data: formatedCommits,
+        message: "All branches are here!",
+        data: localBranches,
       };
 
       this.response
         .status(this.controllerResponse.status)
         .json(this.controllerResponse.data);
     } catch (exception) {
-      console.log(exception);
       this.controllerResponse = {
         status: 500,
         error: "An error has ocurred",
@@ -44,4 +33,4 @@ class CommitController extends Controller {
   }
 }
 
-export default CommitController;
+export default BranchController;
