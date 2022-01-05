@@ -16,9 +16,9 @@ class CommitController extends Controller {
       const formatedCommits = commitsLog.map<Commit>(
         (commit) =>
           new Commit(
+            commit.hash,
             commit.message,
             commit.date,
-            5,
             commit.author_name,
             commit.author_email
           )

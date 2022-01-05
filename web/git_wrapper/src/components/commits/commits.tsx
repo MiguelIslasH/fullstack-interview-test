@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import Modal from "react-bootstrap/Modal";
 import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
 
 import CommitItem from "./local_components/commit_item/commit_item";
 
@@ -53,7 +54,7 @@ function Commits(props: CommitsProps) {
               commits.map((commit) => {
                 return (
                   <CommitItem
-                    commitId="jdija32"
+                    commitId={("" + commit["commitId"]).substring(0, 8)}
                     message={commit["message"]}
                     timestamp={commit["timestamp"]}
                     authorName={commit["authorName"]}
@@ -64,6 +65,11 @@ function Commits(props: CommitsProps) {
           </tbody>
         </Table>
       </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={props.onHide}>
+          Close
+        </Button>
+      </Modal.Footer>
     </Modal>
   );
 }

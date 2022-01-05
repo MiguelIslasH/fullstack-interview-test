@@ -1,20 +1,20 @@
 class Commit {
+  commitId: string;
   message: string;
   timestamp: string;
-  filesChanged: number;
   authorName: string;
   authorEmail: string;
 
   constructor(
+    commitId: string,
     message: string,
     timestamp: string,
-    filesChanged: number,
     authorName: string,
     authorEmail: string
   ) {
     this.message = message;
     this.timestamp = timestamp;
-    this.filesChanged = filesChanged;
+    this.commitId = commitId;
     this.authorName = authorName;
     this.authorEmail = authorEmail;
   }
