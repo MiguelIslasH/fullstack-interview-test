@@ -1,0 +1,15 @@
+.title__container {
+  height: 3rem;
+  background-color: #3d5a8d;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.title__text {
+  color: #2ab7ca;
+}
+
+.subtitle__text {
+  color: #5be308;
+}
