@@ -9,7 +9,12 @@ interface FooterProps {
 function Footer(props: FooterProps) {
   return (
     <div className="footer__container">
-      <Button text="View all" variant="orange" modalName="commits" />
+      <Button
+        text="View all"
+        variant="orange"
+        modalName="commits"
+        branchName={props.title}
+      />
     </div>
   );
 }
