@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <div className={classes.navbar}>
       <h1>Git Wrapper</h1>
-      <Button text="Create PR" />
+      <Button text="Create PR" variant="green" />
     </div>
   );
 }

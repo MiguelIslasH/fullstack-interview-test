@@ -9,8 +9,9 @@ function App() {
   return (
     <div>
       <NavBar />
-      <Divider text="Branches" />
+      <Divider text="Branches" variant="yellow" />
       <BranchesList />
+      <Divider text="Pull Requests" variant="purple" />
     </div>
   );
 }

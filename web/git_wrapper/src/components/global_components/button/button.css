@@ -17,3 +17,9 @@
 .button--green {
   background-color: #5be308;
 }
+
+.button--yellow {
+  background-color: #fed766;
+  padding: 0px 1rem;
+  margin-top: 0.7rem;
+}

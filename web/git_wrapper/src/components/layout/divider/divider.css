@@ -1,6 +1,6 @@
 .divider {
   width: 100vw;
-  height: 4rem;
+  height: 3rem;
   color: white;
   padding: 0;
   padding-left: 10%;
@@ -12,4 +12,8 @@
 
 .divider--yellow {
   background-color: #fed766;
+}
+
+.divider--purple {
+  background-color: #5c8add;
 }

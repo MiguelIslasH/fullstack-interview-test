@@ -3,11 +3,21 @@ import Body from "./local_components/body/body";
 
 import "./branch_item.css";
 
-function BranchItem() {
+interface BranchItemProps {
+  title: string;
+  isCurrent: boolean;
+  lastCommitId: string;
+  lastCommitComment: string;
+}
+
+function BranchItem(props: BranchItemProps) {
   return (
     <div className="item_container">
-      <Title title="Master" isCurrent={true} />
-      <Body />
+      <Title title={props.title} isCurrent={props.isCurrent} />
+      <Body
+        commitId={props.lastCommitId}
+        commitMessage={props.lastCommitComment}
+      />
     </div>
   );
 }
