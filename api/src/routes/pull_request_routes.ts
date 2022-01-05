@@ -8,3 +8,10 @@ PullRequestRouter.get("/", (req, res) => {
   const PRController = new PullRequestController(res);
   PRController.getAllPRs();
 });
+
+PullRequestRouter.post("/", (req, res) => {
+  const PRController = new PullRequestController(res);
+  PRController.addPR();
+});
+
+export default PullRequestRouter;

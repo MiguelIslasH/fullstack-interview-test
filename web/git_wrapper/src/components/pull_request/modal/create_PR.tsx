@@ -1,3 +1,5 @@
+import { useRef, useState } from "react";
+
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
@@ -9,6 +11,12 @@ interface CreatePRProps {
 }
 
 function CreatePR(props: CreatePRProps) {
+  const titleRef = useRef<HTMLInputElement>(null);
+  const descriptionRef = useRef<HTMLInputElement>(null);
+  const [baseBranch, setBaseBranch] = useState("");
+  const [compareBranch, setCompareBranch] = useState("");
+  const [action, setAction] = useState("");
+
   return (
     <Modal show={props.show} onHide={props.onHide} size="lg">
       <Modal.Header closeButton>
@@ -17,7 +25,13 @@ function CreatePR(props: CreatePRProps) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <CreatePRForm />
+        <CreatePRForm
+          title={titleRef}
+          description={descriptionRef}
+          setBase={setBaseBranch}
+          setCompare={setCompareBranch}
+          setAction={setAction}
+        />
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary">Close</Button>
