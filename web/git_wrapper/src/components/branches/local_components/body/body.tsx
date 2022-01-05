@@ -6,6 +6,7 @@ import "./body.css";
 interface BodyProps {
   commitId: string;
   commitMessage: string;
+  title: string;
 }
 
 function Body(props: BodyProps) {
@@ -13,7 +14,7 @@ function Body(props: BodyProps) {
     <div className="body__container">
       <h4 className="body__title">Last commit:</h4>
       <Details commitId={props.commitId} commitMessage={props.commitMessage} />
-      <Footer />
+      <Footer title={props.title} />
     </div>
   );
 }

@@ -15,6 +15,7 @@ function BranchItem(props: BranchItemProps) {
     <div className="item_container">
       <Title title={props.title} isCurrent={props.isCurrent} />
       <Body
+        title={props.title}
         commitId={props.lastCommitId}
         commitMessage={props.lastCommitComment}
       />

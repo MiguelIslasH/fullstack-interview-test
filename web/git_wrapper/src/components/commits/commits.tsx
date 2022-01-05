@@ -1,7 +1,19 @@
+import { useEffect, useState } from "react";
+
 import Modal from "react-bootstrap/Modal";
 import Table from "react-bootstrap/Table";
 
 import CommitItem from "./local_components/commit_item/commit_item";
+
+import { getAllCommits } from "./utils/functions";
+
+interface Commit {
+  commitId: string;
+  message: string;
+  timestamp: string;
+  authorName: string;
+  authorEmail: string;
+}
 
 interface CommitsProps {
   show: boolean;
@@ -10,6 +22,14 @@ interface CommitsProps {
 }
 
 function Commits(props: CommitsProps) {
+  const [commits, setCommits] = useState([]);
+
+  useEffect(() => {
+    getAllCommits(props.branch).then((commits) => {
+      setCommits(commits);
+    });
+  }, []);
+
   return (
     <Modal show={props.show} size="xl" onHide={props.onHide}>
       <Modal.Header closeButton>
@@ -29,13 +49,18 @@ function Commits(props: CommitsProps) {
             </tr>
           </thead>
           <tbody>
-            <CommitItem
-              commitId="jdija32"
-              message="Added Commit modal view"
-              timestamp="19:20:32 2020/02/05"
-              authorName="Miguel Islas"
-              authorEmail="maih201628@gmail.com"
-            />
+            {commits &&
+              commits.map((commit) => {
+                return (
+                  <CommitItem
+                    commitId="jdija32"
+                    message={commit["message"]}
+                    timestamp={commit["timestamp"]}
+                    authorName={commit["authorName"]}
+                    authorEmail={commit["authorEmail"]}
+                  />
+                );
+              })}
           </tbody>
         </Table>
       </Modal.Body>

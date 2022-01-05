@@ -6,23 +6,32 @@ import "./button.css";
 
 interface ButtonProps {
   text: string;
-  variant: "green" | "yellow";
+  variant: "green" | "yellow" | "orange";
+  modalName: string;
 }
 
 function Button(props: ButtonProps) {
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const [showCommitsModal, setShowCommitsModal] = useState<boolean>(false);
+
+  const handleShowModal = () => {
+    if (props.modalName === "commits") {
+      setShowCommitsModal(true);
+    } else if (props.modalName === "pullrequest") {
+    }
+  };
+
   return (
     <>
       <button
         className={"button button--" + props.variant}
-        onClick={(e) => setShowModal(true)}
+        onClick={(e) => handleShowModal()}
       >
         <h4>{props.text}</h4>
       </button>
       <Commits
-        show={showModal}
+        show={showCommitsModal}
         branch="master"
-        onHide={() => setShowModal(false)}
+        onHide={() => setShowCommitsModal(false)}
       />
     </>
   );
