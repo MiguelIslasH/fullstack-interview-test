@@ -9,8 +9,9 @@ class CommitController extends Controller {
     super(response);
   }
 
-  async getCommitLog() {
+  async getCommitLog(branchName: string) {
     try {
+      this.git.checkout(branchName);
       const commitsLog = (await this.git.log({ multiLine: true })).all;
       const formatedCommits = commitsLog.map<Commit>(
         (commit) =>

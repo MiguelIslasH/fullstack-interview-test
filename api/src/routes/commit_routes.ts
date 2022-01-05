@@ -5,9 +5,10 @@ import CommitController from "../controllers/commit_controller";
 const CommitRouter = Router();
 
 //Get all commits in this project
-CommitRouter.get("/", async (_, res, next) => {
+CommitRouter.get("/:branchName", async (req, res, next) => {
+  const branchName = req.params["branchName"];
   const controller = new CommitController(res);
-  await controller.getCommitLog();
+  await controller.getCommitLog(branchName);
 
   next();
 });
