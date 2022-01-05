@@ -18,17 +18,14 @@ class BranchController extends Controller {
         message: "All branches are here!",
         data: localBranches,
       };
-
-      this.response
-        .status(this.controllerResponse.status)
-        .json(this.controllerResponse.data);
     } catch (exception) {
       this.controllerResponse = {
         status: 500,
         error: "An error has ocurred",
       };
       const error = this.controllerResponse.error;
-      this.response.status(this.controllerResponse.status).json({ error });
+    } finally {
+      return this.controllerResponse;
     }
   }
 }
