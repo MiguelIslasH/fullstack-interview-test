@@ -14,7 +14,8 @@ class PullRequestController extends Controller {
     try {
       const storedPR = await PR.find();
       this.response.status(200).json({ data: storedPR });
-    } catch {
+    } catch (exception) {
+      console.log(exception);
       this.response.status(500).json({ error: "Error while getting PRs" });
     }
   }

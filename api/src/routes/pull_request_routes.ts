@@ -13,7 +13,7 @@ PullRequestRouter.post("/", (req, res) => {
   const { title, description, base, compare, status } = req.body;
 
   const PRController = new PullRequestController(res);
-  PRController.addPR(title, description, base, compare, status, author);
+  PRController.addPR(title, description, base, compare, status);
 });
 
 export default PullRequestRouter;

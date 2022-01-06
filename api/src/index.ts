@@ -6,7 +6,10 @@ import CommitRouter from "./routes/commit_routes";
 import BranchRouter from "./routes/branch_routes";
 import PullRequestRouter from "./routes/pull_request_routes";
 
+import ConnectionDB from "./models";
+
 //Init
+ConnectionDB.connect();
 const app = Express();
 
 //Middlewares

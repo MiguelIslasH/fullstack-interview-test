@@ -11,7 +11,6 @@ interface InterfacePR extends Document {
 const PRSchema: Schema = new Schema({
   status: { type: String, required: true },
   title: { type: String, required: true },
-  comments: { type: String, required: true },
   description: { type: String, required: true },
   baseBranch: { type: String, required: true },
   compareBranch: { type: String, required: true },
