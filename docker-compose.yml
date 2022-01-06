@@ -9,6 +9,17 @@ services:
       - ./.git/:/usr/git/
     ports:
       - 5000:5000
+    depends_on:
+      - db_service
+    environment:
+      DB_CONN_STRING: mongodb://db_service:27017/
+  db_service:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
   web_service:
     build:
       context: ./web/git_wrapper/
