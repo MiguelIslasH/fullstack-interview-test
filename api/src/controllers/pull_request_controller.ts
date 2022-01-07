@@ -51,6 +51,16 @@ class PullRequestController extends Controller {
         .json({ error: "Error while merging branches!" });
     }
   }
+
+  async updateStatus(status: string, id: string) {
+    try {
+      await PR.findOneAndUpdate({ _id: id }, { status });
+      this.response.status(200).json({ message: "Status updated" });
+    } catch (exception) {
+      console.log("Error while updating data!");
+      this.response.status(500).json({ message: "Error while updating data!" });
+    }
+  }
 }
 
 export default PullRequestController;

@@ -88,8 +88,8 @@ function CreatePRForm(props: CreatePRFormProps) {
               id="selectBranch1"
               onChange={(e) => props.setAction(e.target.value)}
             >
-              <option>Create (Open)</option>
-              <option>Merge</option>
+              <option value={"Open"}>Create (Open)</option>
+              <option value="Merged">Merge</option>
             </Form.Select>
           </Form.Group>
         </Col>

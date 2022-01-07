@@ -1,0 +1,10 @@
+.body__container {
+  width: 100%;
+  background-color: #2ab7ca;
+  color: whitesmoke;
+  padding: 1rem;
+}
+
+.body__title {
+  font-weight: bold;
+}
