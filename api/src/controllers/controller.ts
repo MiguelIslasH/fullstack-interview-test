@@ -8,6 +8,7 @@ interface ControllerResponse {
   error?: string;
 }
 
+//Select the path to git folder
 const options: Partial<SimpleGitOptions> = {
   baseDir: "/usr/git/",
   maxConcurrentProcesses: 5,

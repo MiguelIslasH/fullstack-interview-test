@@ -2,8 +2,6 @@ import { Response } from "express";
 
 import Controller from "./controller";
 
-import Commit from "../models/commit";
-
 class BranchController extends Controller {
   constructor(response: Response) {
     super(response);

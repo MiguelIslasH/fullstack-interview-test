@@ -1,5 +1,4 @@
 import Express from "express";
-import morgan from "morgan";
 import CORS from "cors";
 
 import CommitRouter from "./routes/commit_routes";
@@ -8,13 +7,19 @@ import PullRequestRouter from "./routes/pull_request_routes";
 
 import ConnectionDB from "./models";
 
-//Init
-ConnectionDB.connect();
+//InitDB
+try {
+  ConnectionDB.connect();
+} catch (exception) {
+  console.log(exception);
+  console.log("Failled on init DB");
+}
+
+//Init APP
 const app = Express();
 
 //Middlewares
 app.use(CORS());
-app.use(morgan("short"));
 app.use(Express.urlencoded({ extended: false }));
 app.use(Express.json());
 

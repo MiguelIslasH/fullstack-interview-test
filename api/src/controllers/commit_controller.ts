@@ -13,6 +13,7 @@ class CommitController extends Controller {
     try {
       this.git.checkout(branchName);
       const commitsLog = (await this.git.log({ multiLine: true })).all;
+      //Convert commits to Commit Model to send in response
       const formatedCommits = commitsLog.map<Commit>(
         (commit) =>
           new Commit(

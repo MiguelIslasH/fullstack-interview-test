@@ -20,6 +20,7 @@ class PullRequestController extends Controller {
     }
   }
 
+  //Save PR in DB and in case of status Merge it will merge branches
   async addPR(
     title: string,
     description: string,
@@ -29,10 +30,11 @@ class PullRequestController extends Controller {
   ) {
     try {
       if (status === "Merge") {
-        exec("git checkout " + base, (err, stdout, stderr) => {});
+        exec("git checkout " + base);
         exec("git merge " + compare);
       }
 
+      //Create instance of PR model
       const pr = new PR({
         title,
         description,
@@ -52,6 +54,7 @@ class PullRequestController extends Controller {
     }
   }
 
+  //Set status of a PR in DB
   async updateStatus(status: string, id: string) {
     try {
       await PR.findOneAndUpdate({ _id: id }, { status });

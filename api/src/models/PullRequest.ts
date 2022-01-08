@@ -8,6 +8,7 @@ interface InterfacePR extends Document {
   compareBranch: string;
 }
 
+//This model is mapped to DB so let's create a Mongoose model
 const PRSchema: Schema = new Schema({
   status: { type: String, required: true },
   title: { type: String, required: true },
