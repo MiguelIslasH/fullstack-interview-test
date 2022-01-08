@@ -26,7 +26,7 @@ function PRList() {
 
   return (
     <div className="list">
-      {PRs &&
+      {PRs.length > 0 ? (
         PRs.map((pr) => (
           <PRItem
             key={pr._id}
@@ -37,7 +37,10 @@ function PRList() {
             description={pr.description}
             id={pr._id}
           />
-        ))}
+        ))
+      ) : (
+        <h4 className="mt-5">Create your first Pull Request!</h4>
+      )}
     </div>
   );
 }

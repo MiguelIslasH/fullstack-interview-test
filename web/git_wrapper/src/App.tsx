@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <NavBar />
-      <Divider text="Branches" variant="yellow" />
+      <Divider text="Local Branches" variant="yellow" />
       <BranchesList />
       <Divider text="Pull Requests" variant="purple" />
       <PRList />
