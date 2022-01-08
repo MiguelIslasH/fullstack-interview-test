@@ -11,6 +11,7 @@ interface PRFooterProps {
   base: string;
   compare: string;
   id: string;
+  setStatus: (status: string) => void;
 }
 
 function PRFooter(props: PRFooterProps) {
@@ -19,6 +20,7 @@ function PRFooter(props: PRFooterProps) {
   const handleUpdateStatus = () => {
     updatePR(action, props.id).then((response) => {
       console.log(response);
+      props.setStatus(action);
       alert(response);
     });
   };

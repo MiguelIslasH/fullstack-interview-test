@@ -51,9 +51,10 @@ function Commits(props: CommitsProps) {
           </thead>
           <tbody>
             {commits &&
-              commits.map((commit) => {
+              commits.map((commit, index) => {
                 return (
                   <CommitItem
+                    key={index}
                     commitId={("" + commit["commitId"]).substring(0, 8)}
                     message={commit["message"]}
                     timestamp={commit["timestamp"]}

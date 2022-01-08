@@ -6,6 +6,7 @@ interface BodyPRProps {
   base: string;
   compare: string;
   id: string;
+  setStatus: (status: string) => void;
 }
 
 function BodyPR(props: BodyPRProps) {
@@ -13,7 +14,12 @@ function BodyPR(props: BodyPRProps) {
     <div className="body__container">
       {props.description}
       <hr />
-      <PRFooter base={props.base} compare={props.compare} id={props.id} />
+      <PRFooter
+        base={props.base}
+        compare={props.compare}
+        id={props.id}
+        setStatus={props.setStatus}
+      />
     </div>
   );
 }

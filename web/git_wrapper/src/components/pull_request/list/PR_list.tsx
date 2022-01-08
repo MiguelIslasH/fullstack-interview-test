@@ -29,6 +29,7 @@ function PRList() {
       {PRs &&
         PRs.map((pr) => (
           <PRItem
+            key={pr._id}
             compare={pr.compareBranch}
             title={pr.title}
             status={pr.status}

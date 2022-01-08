@@ -57,8 +57,12 @@ function CreatePRForm(props: CreatePRFormProps) {
               onChange={(e) => props.setBase(e.target.value)}
             >
               {branches &&
-                branches.map((branch) => {
-                  return <option value={branch}>{branch}</option>;
+                branches.map((branch, index) => {
+                  return (
+                    <option value={branch} key={"select1" + index}>
+                      {branch}
+                    </option>
+                  );
                 })}
             </Form.Select>
           </Form.Group>
@@ -72,9 +76,16 @@ function CreatePRForm(props: CreatePRFormProps) {
               id="selectBranch2"
               onChange={(e) => props.setCompare(e.target.value)}
             >
+              <option disabled defaultChecked>
+                - Select -{" "}
+              </option>
               {branches &&
-                branches.map((branch) => {
-                  return <option value={branch}>{branch}</option>;
+                branches.map((branch, index) => {
+                  return (
+                    <option value={branch} key={"select2" + index}>
+                      {branch}
+                    </option>
+                  );
                 })}
             </Form.Select>
           </Form.Group>

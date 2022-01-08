@@ -58,7 +58,7 @@ class PullRequestController extends Controller {
       this.response.status(200).json({ message: "Status updated" });
     } catch (exception) {
       console.log("Error while updating data!");
-      this.response.status(500).json({ message: "Error while updating data!" });
+      this.response.status(500).json({ error: "Error while updating data!" });
     }
   }
 }

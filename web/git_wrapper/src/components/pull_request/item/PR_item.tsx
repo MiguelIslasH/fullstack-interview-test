@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Title from "../../branches/local_components/title/title";
 import BodyPR from "./body/body";
 
@@ -13,15 +14,23 @@ interface PRItemProps {
 }
 
 function PRItem(props: PRItemProps) {
+  const [status, setStatus] = useState(props.status);
+
   return (
     <div className="item_container--PR">
-      <Title title={props.title} isCurrent={true} secondTitle={props.status} />
+      <Title
+        key={props.id}
+        title={props.title}
+        isCurrent={true}
+        secondTitle={status}
+      />
 
       <BodyPR
         description={props.description}
         base={props.base}
         compare={props.compare}
         id={props.id}
+        setStatus={setStatus}
       />
     </div>
   );
