@@ -8,6 +8,8 @@ import CommitItem from "./local_components/commit_item/commit_item";
 
 import { getAllCommits } from "./utils/functions";
 
+import "./commits.css";
+
 interface Commit {
   commitId: string;
   message: string;
@@ -32,7 +34,12 @@ function Commits(props: CommitsProps) {
   }, []);
 
   return (
-    <Modal show={props.show} size="xl" onHide={props.onHide}>
+    <Modal
+      show={props.show}
+      size="xl"
+      onHide={props.onHide}
+      dialogClassName="commitsModal"
+    >
       <Modal.Header closeButton>
         <Modal.Title>
           <h3>Commits of {props.branch}</h3>
