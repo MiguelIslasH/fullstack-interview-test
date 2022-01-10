@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import Button from "../../global_components/button/button";
 
 import classes from "./navbar.module.css";

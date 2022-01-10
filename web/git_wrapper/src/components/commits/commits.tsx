@@ -23,7 +23,7 @@ function Commits(props: CommitsProps) {
     getAllCommits(props.branch).then((commits) => {
       setCommits(commits);
     });
-  }, []);
+  }, [props.branch]);
 
   return (
     <Modal
