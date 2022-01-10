@@ -5,7 +5,6 @@ services:
       context: .
       dockerfile: ./api/Dockerfile
     volumes:
-      - ./api/:/usr/api/
       - ./.git/:/usr/git/
     ports:
       - 5000:5000
@@ -26,7 +25,5 @@ services:
     build:
       context: ./web/git_wrapper/
       dockerfile: Dockerfile
-    volumes:
-      - ./web/git_wrapper/:/usr/web/
     ports:
       - 3000:3000
