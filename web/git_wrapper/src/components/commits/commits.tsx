@@ -10,14 +10,6 @@ import { getAllCommits } from "./utils/functions";
 
 import "./commits.css";
 
-interface Commit {
-  commitId: string;
-  message: string;
-  timestamp: string;
-  authorName: string;
-  authorEmail: string;
-}
-
 interface CommitsProps {
   show: boolean;
   branch: string;
